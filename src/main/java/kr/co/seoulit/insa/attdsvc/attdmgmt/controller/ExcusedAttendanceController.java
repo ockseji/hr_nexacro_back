@@ -32,7 +32,7 @@ public class ExcusedAttendanceController {
 		RestAttdTO restAttd = datasetBeanMapper.datasetToBean(reqData, RestAttdTO.class);//한 행이 insert됨
 		//뷰단에서 ds_restAttd이 넘어오는데 몇몇 칼럼값들 뷰단에서 세팅되어서 넘어옴
 		//나머지 칼럽값들은 어떤식으로 세팅되서 넘어오는거❓❓
-		//이미 조회하기눌러서 dataset에 조회된 칼럼값들이 들어있고, 나머지 세팅하는 값만 수정되서 INSERT되는 거같음??????????? 아닌듯 ,,.몰라
+		//이미 조회하기눌러서 dataset에 조회된 칼럼값들이 들어있고, 나머지 세팅하는 값만 수정되서 INSERT되는 거같음???????????
 		attdMgmtService.registRestAttd(restAttd);
 		log.info("✅✅✅========== 근태신청 컨드롤러 끝===========");
 	}
@@ -80,7 +80,7 @@ public class ExcusedAttendanceController {
 		String endDate = reqData.getVariable("endDate").getString();//두번쨰 달력컴포넌트에 값이 세팅되서 넘어옴
 		String code = reqData.getVariable("code").getString();//넥사 innerdataset에서 값이 넘어옴
 		//근태외신청에서 근태구분에 innerdataset인 ds_restType의 DETAIL_CODE_NAME이 바인딩되어있고, code에는 innerdataset의 DETAIL_CODE_NUMBER가 들어가있음
-		ArrayList<RestAttdTO> restAttdList = attdMgmtService.findRestAttdList(empCode, startDate, endDate, code); // 테이블 분리 해놔야 될 거 같은데 존나 병신같음 이거
+		ArrayList<RestAttdTO> restAttdList = attdMgmtService.findRestAttdList(empCode, startDate, endDate, code); // 테이블 분리 해놔야 될 거 같은데
 		datasetBeanMapper.beansToDataset(resData, restAttdList, RestAttdTO.class);
 
 		long end1 = System.currentTimeMillis();
